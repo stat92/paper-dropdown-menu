@@ -185,6 +185,13 @@ Polymer({
       type: Boolean,
       value: true
     },
+
+    /*
+    * Attribute for value name
+    */
+    attrForValue: {
+      type: String
+    }
   },
 
   listeners: {
@@ -280,15 +287,15 @@ Polymer({
    * optional `label` property.
    */
   _selectedItemChanged: function(selectedItem) {
-    var value = '';
-    if (!selectedItem) {
-      value = '';
-    } else {
-      value = selectedItem.label || selectedItem.getAttribute('label') || selectedItem.textContent.trim();
-    }
+    var value = '',
+    label = '';
+    if (selectedItem) {
+      label = selectedItem.label || selectedItem.textContent.trim();
+      value = selectedItem[this.attrForValue] || label;
+    } 
 
     this._setValue(value);
-    this._setSelectedItemLabel(value);
+    this._setSelectedItemLabel(label);
   },
 
   /**
