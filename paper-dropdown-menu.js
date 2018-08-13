@@ -217,6 +217,13 @@ Polymer({
      * Whether focus should be restored to the dropdown when the menu closes.
      */
     restoreFocusOnClose: {type: Boolean, value: true},
+
+    /*
+    * Attribute for value name
+    */
+    attrForValue: {
+      type: String
+    }
   },
 
   listeners: {'tap': '_onTap'},
@@ -309,11 +316,10 @@ Polymer({
     if (!selectedItem) {
       value = '';
     } else {
-      value = selectedItem.label || selectedItem.getAttribute('label') ||
-          selectedItem.textContent.trim();
+      value = selectedItem.label || selectedItem.getAttribute('label') || selectedItem.textContent.trim();
     }
 
-    this.value = value;
+    this._setValue(value);
     this._setSelectedItemLabel(value);
   },
 

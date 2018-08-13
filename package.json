@@ -28,7 +28,7 @@
   "scripts": {
     "format": "webmat"
   },
-  "version": "3.0.0-pre.20",
+  "version": "3.0.1",
   "author": "The Polymer Authors",
   "dependencies": {
     "@polymer/polymer": "^3.0.0",
