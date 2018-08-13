@@ -319,7 +319,7 @@ Polymer({
       value = selectedItem.label || selectedItem.getAttribute('label') || selectedItem.textContent.trim();
     }
 
-    this._setValue(value);
+    this.value = value;
     this._setSelectedItemLabel(value);
   },
 
