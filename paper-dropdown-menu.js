@@ -313,14 +313,14 @@ Polymer({
    */
   _selectedItemChanged: function(selectedItem) {
     var value = '';
-    if (!selectedItem) {
-      value = '';
-    } else {
-      value = selectedItem.label || selectedItem.getAttribute('label') || selectedItem.textContent.trim();
+    var label = '';
+    if (selectedItem) {
+      label = selectedItem.textContent.trim();
+      value = selectedItem[this.attrForValue];
     }
 
     this.value = value;
-    this._setSelectedItemLabel(value);
+    this._setSelectedItemLabel(label);
   },
 
   /**
